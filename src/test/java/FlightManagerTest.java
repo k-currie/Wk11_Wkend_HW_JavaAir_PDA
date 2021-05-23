@@ -1,4 +1,3 @@
-import People.CabinCrewMember;
 import People.CrewRank;
 import People.Passenger;
 import People.Pilot;
@@ -45,6 +44,11 @@ public class FlightManagerTest {
     }
 
     @Test
+    public void canGetPlanesTotalAvailableBaggageWeight() {
+        assertEquals(500, flightManager.getPlanesStartingBaggageWeight());
+    }
+
+    @Test
     public void canCalculateBaggageWeightOfBookedPassengers() {
         flight.addPassenger(passenger1);
         flight.addPassenger(passenger2);
@@ -57,6 +61,6 @@ public class FlightManagerTest {
         flight.addPassenger(passenger1);
         flight.addPassenger(passenger2);
         flight.addPassenger(passenger3);
-        assertEquals(850, flightManager.calculateBaggageWeightRemaining());
+        assertEquals(350, flightManager.calculateBaggageWeightRemaining());
     }
 }

@@ -16,16 +16,24 @@ public class FlightManager {
 
     public int getBaggageWeightPerPerson(){
         int planeWeight = this.plane.getPlaneType().getWeight();
+        int baggageWeight = planeWeight/2;
         int planeCapacity = this.plane.getPlaneType().getCapacity();
-        return ((planeWeight/2)/planeCapacity);
+        return (baggageWeight/planeCapacity);
+    }
+
+    public int getPlanesStartingBaggageWeight(){
+        int planeWeight = this.plane.getPlaneType().getWeight();
+        int baggageWeight = planeWeight/2;
+        return baggageWeight;
     }
 
     public int calculateBookedBaggageWeight() {
-        int totalBaggageWeight = flight.getNumberOfPassengers()*getBaggageWeightPerPerson();
-        return totalBaggageWeight;
+        int bookedBaggageWeight = flight.getNumberOfPassengers()*getBaggageWeightPerPerson();
+        return bookedBaggageWeight;
     }
 
     public int calculateBaggageWeightRemaining() {
-//        int baggageWeightLeft = flight.getW
+        int baggageWeightRemaining = getPlanesStartingBaggageWeight() - calculateBookedBaggageWeight();
+        return baggageWeightRemaining;
     }
 }

@@ -29,11 +29,13 @@ public class FlightTest {
     ArrayList<CabinCrewMember> cabinCrewMembers;
     ArrayList<Passenger> passengers;
 
+
+
     @Before
     public void before(){
         plane = new Plane(PlaneType.BOEING747);
         pilot = new Pilot("Jackie Trent", CrewRank.CAPTAIN, "DE34346");
-        flight = new Flight(plane, pilot, "GH4523", "ABZ", "PLA", "08:30");
+        flight = new Flight(plane, pilot, "GH4523", "ABZ", "AGP", "08:30");
         cabinCrewMember1 = new CabinCrewMember("Penny", CrewRank.FLIGHTATTENDANT);
         cabinCrewMember2 = new CabinCrewMember("Garry", CrewRank.FLIGHTATTENDANT);
         passenger1 = new Passenger("Bob", 2);
@@ -57,7 +59,7 @@ public class FlightTest {
 
     @Test
     public void hasDestinationAirport() {
-        assertEquals("PLA", flight.getDestinationAirport());
+        assertEquals("AGP", flight.getDestinationAirport());
     }
 
     @Test
@@ -68,11 +70,13 @@ public class FlightTest {
     @Test
     public void hasPlane() {
         assertEquals(plane, flight.getPlane());
+        assertEquals(PlaneType.BOEING747, plane.getPlaneType());
     }
 
     @Test
     public void hasPilot() {
         assertEquals(pilot, flight.getPilot());
+        assertEquals("Jackie Trent", pilot.getName());
     }
 
     @Test
@@ -115,6 +119,5 @@ public class FlightTest {
 
         assertEquals(2, flight.getAvailableSeats());
     }
-
 
 }

@@ -7,6 +7,7 @@ import People.Pilot;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.PrimitiveIterator;
 
 // Assume 1 pilot per flight
@@ -95,4 +96,6 @@ public class Flight {
             int placesTaken = customers + staffTotal;
             return capacity - placesTaken;
     }
+
+
 }
